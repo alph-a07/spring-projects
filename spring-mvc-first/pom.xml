@@ -5,23 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.alpha07</groupId>
-    <artifactId>spring-mvc-demo</artifactId>
+    <artifactId>spring-mvc-first</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>spring-mvc-demo</name>
+    <name>spring-mvc-first</name>
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
         <junit.version>5.9.1</junit.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>4.0.1</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -40,10 +40,9 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
-            <version>6.0.0</version>
+            <version>6.0.4</version>
         </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
