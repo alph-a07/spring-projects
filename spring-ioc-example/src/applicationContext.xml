@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+    <!-- Load the properties file -->
+    <context:property-placeholder location="classpath:team.properties"/>
+
+    <!-- Configurable coach bean-->
+    <!-- Can be configured between BasketballCoach and RaceCoach -->
+    <bean id="myCoach" class="com.alpha07.coaches.BasketballCoach">
+        <!-- Constructor injection -->
+        <constructor-arg ref="myFortune"/>
+    </bean>
+
+    <!-- Configurable cricket coach bean-->
+    <bean id="myCricketCoach" class="com.alpha07.coaches.CricketCoach">
+        <!-- Setter injection via reference-->
+        <property name="fortuneService" ref="myFortune"/>
+
+        <!-- Setter injection via value-->
+        <property name="teamName" value="India"/>
+
+        <!-- Setter injection from a properties file -->
+        <property name="captainName" value="${foo.captain}"/>
+    </bean>
+
+    <!-- Declare FortuneService bean -->
+    <bean id="myFortune" class="com.alpha07.fortunes.HappyFortuneService"/>
+</beans>
+
+
+
+
+
+
