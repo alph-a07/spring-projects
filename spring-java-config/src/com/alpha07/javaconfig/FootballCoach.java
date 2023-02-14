@@ -1,4 +1,4 @@
-package com.alpha07.annotations;
+package com.alpha07.javaconfig;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
