@@ -18,6 +18,8 @@
     <mvc:annotation-driven/>
 
     <!-- Step 5: Define Spring MVC view resolver -->
+    <!-- This will find view(frontend) names from specified folder and append .jsp as prefix-->
+    <!-- We don't always have to specify full JSP page name-->
     <bean
             class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/"/>
