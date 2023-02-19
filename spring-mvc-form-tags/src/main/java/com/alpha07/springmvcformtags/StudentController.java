@@ -30,6 +30,7 @@ public class StudentController {
         // The student object is automatically bound with form responses from due to @ModelAttribute
         System.out.println("Student name: " + student.getFirstName() + " " + student.getLastName());
         System.out.println("Student email: " + student.getEmail());
+        System.out.println("Student country: " + student.getCountry());
 
         return "confirmation";
     }

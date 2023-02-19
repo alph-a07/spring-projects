@@ -20,6 +20,23 @@
 
     <br><br>
 
+    Country: <form:select path="country">
+    <form:option value="USA">USA</form:option>
+    <form:option value="UK">UK</form:option>
+    <form:option value="Canada">Canada</form:option>
+    <form:option value="France">France</form:option>
+    <form:option value="Germany">Germany</form:option>
+    <form:option value="Japan">Japan</form:option>
+    <form:option value="Italy">Italy</form:option>
+    <form:option value="India">Spain</form:option>
+    <form:option value="Russia">Russia</form:option>
+    <form:option value="Greece">Greece</form:option>
+    <form:option value="Netherlands">Netherlands</form:option>
+    <form:option value="Sweden">Sweden</form:option>
+</form:select>
+
+    <br><br>
+
     <%-- When the form is submitted, model student object's setter methods are called to set field values --%>
     <input type="submit" value="Submit"/>
 </form:form>
