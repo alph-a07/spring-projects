@@ -9,5 +9,6 @@
 Student name: ${student.firstName} ${student.lastName} <br>
 Student email: ${student.email} <br>
 Student country: ${student.country} <br>
+Favourite programming language: ${student.favProgrammingLanguage} <br>
 </body>
 </html>

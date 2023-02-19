@@ -5,6 +5,15 @@ public class Student {
     String lastName;
     String email;
     String country;
+    String favProgrammingLanguage;
+
+    public String getFavProgrammingLanguage() {
+        return favProgrammingLanguage;
+    }
+
+    public void setFavProgrammingLanguage(String favProgrammingLanguage) {
+        this.favProgrammingLanguage = favProgrammingLanguage;
+    }
 
     public String getCountry() {
         return country;

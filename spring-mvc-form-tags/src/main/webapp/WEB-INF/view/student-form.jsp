@@ -37,6 +37,13 @@
 
     <br><br>
 
+    Java <form:radiobutton path="favProgrammingLanguage" value="Java"/>
+    C++ <form:radiobutton path="favProgrammingLanguage" value="C++"/>
+    Python <form:radiobutton path="favProgrammingLanguage" value="Python"/>
+    PHP <form:radiobutton path="favProgrammingLanguage" value="PHP"/>
+
+    <br><br>
+
     <%-- When the form is submitted, model student object's setter methods are called to set field values --%>
     <input type="submit" value="Submit"/>
 </form:form>
