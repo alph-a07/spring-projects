@@ -8,7 +8,7 @@
 <h1>Please fill the form</h1>
 
 <%--<form action="process" method="get">--%>
-<form action="processV2" method="post">
+<form action="hello/processV3" method="post">
 
     <label for="name" title="Name">Name:</label>
     <input type="text" id="name" name="name"/>
