@@ -6,6 +6,15 @@ public class Student {
     String email;
     String country;
     String favProgrammingLanguage;
+    String[] languages;
+
+    public String[] getLanguages() {
+        return languages;
+    }
+
+    public void setLanguages(String[] languages) {
+        this.languages = languages;
+    }
 
     public String getFavProgrammingLanguage() {
         return favProgrammingLanguage;

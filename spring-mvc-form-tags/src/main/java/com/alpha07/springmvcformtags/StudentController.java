@@ -32,7 +32,10 @@ public class StudentController {
         System.out.println("Student email: " + student.getEmail());
         System.out.println("Student country: " + student.getCountry());
         System.out.println("Favourite programming language: " + student.getFavProgrammingLanguage());
-
+        System.out.print("Spoken languages: ");
+        for (String language:student.getLanguages()) {
+            System.out.print(language + " ");
+        }
         return "confirmation";
     }
 }
