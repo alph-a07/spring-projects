@@ -44,6 +44,13 @@
 
     <br><br>
 
+    Hindi <form:checkbox path="languages" value="Hindi"/>
+    English <form:checkbox path="languages" value="English"/>
+    Gujarati <form:checkbox path="languages" value="Gujarati"/>
+    Kannada <form:checkbox path="languages" value="Kannada"/>
+
+    <br><br>
+
     <%-- When the form is submitted, model student object's setter methods are called to set field values --%>
     <input type="submit" value="Submit"/>
 </form:form>
