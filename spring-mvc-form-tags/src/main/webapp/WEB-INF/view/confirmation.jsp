@@ -7,7 +7,6 @@
 <body>
 <h1>Student confirmed!</h1>
 <%-- Accessing model attribute --%>
-<<<<<<< HEAD
 👉🏻Student name: ${student.firstName} ${student.lastName} <br>
 👉🏻Student email: ${student.email} <br>
 👉🏻Student country: ${student.country} <br>
