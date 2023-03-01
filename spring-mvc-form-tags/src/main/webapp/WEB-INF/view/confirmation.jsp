@@ -11,6 +11,7 @@
 👉🏻Age: ${student.age} <br>
 👉🏻Student email: ${student.email} <br>
 👉🏻Student country: ${student.country} <br>
+👉🏻Pin-code: ${student.pincode} <br>
 👉🏻Favourite programming language: ${student.favProgrammingLanguage} <br>
 👉🏻Spoken languages:
 <c:forEach var="language" items="${student.languages}">

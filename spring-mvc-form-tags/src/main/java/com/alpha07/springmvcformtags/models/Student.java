@@ -1,5 +1,6 @@
 package com.alpha07.springmvcformtags.models;
 
+import com.alpha07.springmvcformtags.GmailOnly;
 import jakarta.validation.constraints.*;
 
 public class Student {
@@ -12,6 +13,7 @@ public class Student {
     @Min(value = 1, message = "Invalid value")
     @Max(value = 24, message = "Students above 24 are not eligible")
     Integer age; // Use wrapper class to access string trimming feature
+    @GmailOnly(tag = "@nitk.edu.in", message = "Only university mails accepted")
     String email;
     String country;
     @NotNull(message = "Mandatory field")

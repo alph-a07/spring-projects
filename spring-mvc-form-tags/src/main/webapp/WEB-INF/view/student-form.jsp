@@ -9,6 +9,10 @@
             color: red;
             font-style: italic;
         }
+        .blueError{
+            color: blue;
+            font-style: italic;
+        }
     </style>
 </head>
 <body>
@@ -30,6 +34,7 @@
     <br><br>
 
     Email: <form:input path="email"/>
+    <form:errors path="email" cssClass="blueError"/>
 
     <br><br>
 
