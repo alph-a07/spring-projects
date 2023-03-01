@@ -3,16 +3,29 @@
 <html>
 <head>
     <title>Student form</title>
+
+    <style>
+        .error {
+            color: red;
+            font-style: italic;
+        }
+    </style>
 </head>
 <body>
 <%-- 2 - Processing of the form fields by spring itself --%>
 <%-- The fields are set values from the modelAttribute student object getter methods(Empty in our case) --%>
 <form:form action="submit" modelAttribute="student">
-    First Name: <form:input path="firstName"/>
+    First Name(*): <form:input path="firstName"/>
+    <form:errors path="firstName" cssClass="error"/>
 
     <br><br>
 
     Last Name: <form:input path="lastName"/>
+
+    <br><br>
+
+    Age(*): <form:input path="age"/>
+    <form:errors path="age" cssClass="error"/>
 
     <br><br>
 
@@ -34,6 +47,11 @@
     <form:option value="Netherlands">Netherlands</form:option>
     <form:option value="Sweden">Sweden</form:option>
 </form:select>
+
+    <br><br>
+
+    Pin code(*): <form:input path="pincode"/>
+    <form:errors path="pincode" cssClass="error"/>
 
     <br><br>
 
