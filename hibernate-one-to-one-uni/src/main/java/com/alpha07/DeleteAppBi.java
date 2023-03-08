@@ -7,7 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class CreateApp {
+public class DeleteAppBi {
     public static void main(String[] args) {
 
         SessionFactory factory = new Configuration()
@@ -22,27 +22,23 @@ public class CreateApp {
         Transaction transaction = session.beginTransaction();
 
         try {
-            // Create Instructor object
-            Instructor instructor = new Instructor("Belle", "Kris", "blake.goodwin@example.com");
-            System.out.println(">> " + instructor);
+            int id = 3;
 
-            // Create InstructorDetails object
-            InstructorDetails instructorDetails = new InstructorDetails("youtube.com/interpellates", "Amabel");
-            System.out.println(">> " + instructorDetails);
+            // Retrieve the instructorDetail object
+            InstructorDetails instructorDetails = session.get(InstructorDetails.class,id);
 
-            // Link InstructorDetails to Instructor object
-            instructor.setInstructorDetails(instructorDetails);
-            System.out.println("Instructor details : " + instructor.getInstructorDetails());
-
-            // Save the Instructor object
-            System.out.println(">> Saving the instructor object");
-            session.persist(instructor);
+            // Delete the instructionDetail object
+            if (instructorDetails != null){
+                System.out.println(">> Deleting : " + instructorDetails);
+                System.out.println(">> Associated instructor : " + instructorDetails.getInstructor() + " will also be deleted");
+                session.remove(instructorDetails);
+            } else {
+                System.out.println(">> No such instructor exist!");
+            }
 
             // Commit the transaction
             System.out.println(">> Committing transaction");
             transaction.commit();
-            System.out.println("Saved : " + instructor);
-            System.out.println("Saved : " + instructorDetails);
 
         } finally {
             factory.close();
