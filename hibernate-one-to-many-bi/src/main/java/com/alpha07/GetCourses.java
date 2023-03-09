@@ -7,6 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 public class GetCourses {
     public static void main(String[] args) {
@@ -23,21 +24,34 @@ public class GetCourses {
         System.out.println(">> Beginning transaction");
 
         try {
-            int id = 2;
+            int id = 4;
 
-            // Retrieve the instructor object
-            Instructor instructor = session.get(Instructor.class, id);
+            // Create HQL query to eager load instructor and courses
+            Query<Instructor> query = session.createQuery("SELECT i FROM Instructor i " +
+                    "JOIN FETCH i.courses " +
+                    "WHERE i.id=:queryID", Instructor.class);
+
+            // Set instructor ID as query parameter
+            query.setParameter("queryID",id);
+
+            // Retrieve the instructor
+            // Courses will also be loaded into memory
+            Instructor instructor = query.getSingleResult();
+
             System.out.println(instructor);
-
-            if (instructor != null) {
-                // Retrieve instructor courses
-                System.out.println("Instructor courses : " + instructor.getCourses());
-            } else
-                System.out.println(">> No such instructor!");
 
             // Commit the transaction
             System.out.println(">> Committing transaction");
             transaction.commit();
+
+            // Close the session
+            session.close();
+            System.out.println(">> Session closed!");
+
+            // Try to get courses after session is closed -- SUCCESS
+            if (instructor != null) {
+                System.out.println(instructor.getCourses());
+            }
 
         } finally {
             // CLOSE SESSION BEFORE FACTORY

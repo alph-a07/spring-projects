@@ -27,7 +27,7 @@ public class Instructor {
     private InstructorDetails instructorDetails;
 
     // ONE instructor can teach MANY courses
-    @OneToMany(mappedBy = "instructor", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Course> courses;
 
     public Instructor() {
@@ -40,8 +40,8 @@ public class Instructor {
     }
 
     // Method to set up bidirectional relationship b/w instructor and course
-    public void addCourse(Course course){
-        if(courses == null) courses = new ArrayList<>();
+    public void addCourse(Course course) {
+        if (courses == null) courses = new ArrayList<>();
 
         courses.add(course); // add course to instructor list
         course.setInstructor(this); // set course instructor
