@@ -6,11 +6,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "instructor")
-public class Instructor {
+@Table(name = "student")
+public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "first_name")
@@ -22,39 +22,27 @@ public class Instructor {
     @Column(name = "email")
     private String email;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "instructor_detail_id", referencedColumnName = "id")
-    private InstructorDetails instructorDetails;
-
-    // ONE instructor can teach MANY courses
-    @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    @ManyToMany(cascade = {CascadeType.DETACH,CascadeType.MERGE,CascadeType.MERGE,CascadeType.PERSIST})
+    @JoinTable(name = "course_student", joinColumns = @JoinColumn(name = "student_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"))
     private List<Course> courses;
 
-    public Instructor() {
-    }
+    public Student() {}
 
-    public Instructor(String firstName, String lastName, String email) {
+    public Student(String firstName, String lastName, String email) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
     }
 
-    // Method to set up bidirectional relationship b/w instructor and course
-    public void addCourse(Course course) {
-        if (courses == null) courses = new ArrayList<>();
-
-        courses.add(course); // add course to instructor list
-        course.setInstructor(this); // set course instructor
-    }
-
     @Override
     public String toString() {
-        return "Instructor{" +
+        return "Student{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", instructorDetails=" + instructorDetails +
+                ", courses=" + courses +
                 '}';
     }
 
@@ -88,14 +76,6 @@ public class Instructor {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public InstructorDetails getInstructorDetails() {
-        return instructorDetails;
-    }
-
-    public void setInstructorDetails(InstructorDetails instructorDetails) {
-        this.instructorDetails = instructorDetails;
     }
 
     public List<Course> getCourses() {

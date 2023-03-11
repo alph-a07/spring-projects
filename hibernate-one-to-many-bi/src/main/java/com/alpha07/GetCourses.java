@@ -23,7 +23,7 @@ public class GetCourses {
 
         System.out.println(">> Beginning transaction");
 
-        try {
+        try (factory; session) {
             int id = 4;
 
             // Create HQL query to eager load instructor and courses
@@ -32,7 +32,7 @@ public class GetCourses {
                     "WHERE i.id=:queryID", Instructor.class);
 
             // Set instructor ID as query parameter
-            query.setParameter("queryID",id);
+            query.setParameter("queryID", id);
 
             // Retrieve the instructor
             // Courses will also be loaded into memory
@@ -52,11 +52,6 @@ public class GetCourses {
             if (instructor != null) {
                 System.out.println(instructor.getCourses());
             }
-
-        } finally {
-            // CLOSE SESSION BEFORE FACTORY
-            session.close();
-            factory.close();
         }
     }
 }
