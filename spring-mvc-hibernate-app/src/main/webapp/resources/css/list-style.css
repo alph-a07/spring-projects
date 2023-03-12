@@ -2,7 +2,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif; /* Use Open Sans font family */
     font-size: 16px;
     color: #333;
     background-color: #f7f7f7;
@@ -13,13 +13,14 @@ table {
     width: 90%;
     margin: 0 auto;
     border-collapse: collapse;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add box shadow to table */
     overflow: hidden;
 }
 
+/* Style the table header */
 th {
     padding: 15px;
-    background-color: #09c332;
+    background-color: #3780ff; /* Change the background color to #3780ff */
     color: #fff;
     text-align: left;
     font-weight: 600;
@@ -27,11 +28,13 @@ th {
     font-size: 14px;
 }
 
+/* Style the table data */
 td {
     padding: 10px 15px;
     border-bottom: 1px solid #ddd;
 }
 
+/* Style the even rows */
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -40,12 +43,13 @@ tr:nth-child(even) {
 #header {
     width: 100%;
     height: 100px;
-    background-color: #09c332;
+    background-color: #3780ff; /* Change the background color to #3780ff */
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+/* Style the header text */
 #header h2 {
     color: #fff;
     text-transform: uppercase;
@@ -59,10 +63,11 @@ tr:nth-child(even) {
     width: 90%;
     margin: 50px auto;
     background-color: #fff;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add box shadow to container */
     padding: 20px;
 }
 
+/* Style the container header */
 #container h3 {
     color: #333;
     font-weight: 600;
@@ -70,13 +75,14 @@ tr:nth-child(even) {
     margin-top: 0;
 }
 
+/* Style the container text */
 #container p {
     line-height: 1.5;
 }
 
 /* Style the add button */
 .add-button {
-    background-color: #09c332;
+    background-color: #3780ff; /* Change the background color to #3780ff */
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -87,8 +93,9 @@ tr:nth-child(even) {
     transition: all 0.3s ease-in-out;
 }
 
+/* Style the add button hover effect */
 .add-button:hover {
     background-color: #fff;
-    color: #09c332;
-    border: 2px solid #09c332;
+    color: #3780ff; /* Change the text color to #3780ff */
+    border: 2px solid #3780ff; /* Add border color to the button */
 }
