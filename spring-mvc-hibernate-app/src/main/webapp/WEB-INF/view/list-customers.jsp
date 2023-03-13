@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Customers</title>
+    <title>All customers</title>
 
     <%-- Link the stylesheet for displaying list of customers --%>
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/list-style.css">
@@ -17,6 +17,8 @@
 
 <div id="container">
     <div id="content">
+        <input type="button" value="Add customer" class="add-button" onclick="window.location.href='showAddForm'"/> <br><br>
+
         <table>
             <tr>
                 <th>First name</th>
@@ -32,6 +34,7 @@
                 </tr>
             </c:forEach>
         </table>
+
     </div>
 </div>
 </body>

@@ -64,7 +64,7 @@ tr:nth-child(even) {
     margin: 50px auto;
     background-color: #fff;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1); /* Add box shadow to container */
-    padding: 20px;
+    padding: 10px;
 }
 
 /* Style the container header */

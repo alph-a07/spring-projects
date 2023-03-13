@@ -2,10 +2,11 @@ package com.alpha07.controller;
 
 import com.alpha07.dao.CustomerDAO;
 import com.alpha07.entity.Customer;
+import com.alpha07.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,20 +14,40 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    // The implementation will be autowired by Spring thanks to @Repository
+    // The implementation will be autowired by Spring thanks to @Service
     @Autowired
-    private CustomerDAO customerDAO;
+    private CustomerService customerService;
 
-    @RequestMapping("/list")
-    public String listCustomers(Model model){
+    // @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @GetMapping("/list")
+    public String listCustomers(Model model) {
 
         // Retrieve customers list
-        List<Customer> customers = customerDAO.getCustomers();
+        List<Customer> customers = customerService.getCustomers();
 
         // Add customers list to model as attribute
         // to use it in jsp file
-        model.addAttribute("customers",customers);
+        model.addAttribute("customers", customers);
 
         return "list-customers";
+    }
+
+    @GetMapping("/showAddForm")
+    public String showAddForm(Model model) {
+        // Add customer object to model attribute for data binding
+        Customer customer = new Customer();
+        model.addAttribute("customer", customer);
+
+        return "add-customer";
+    }
+
+    @PostMapping("/saveCustomer")
+    public String saveCustomer(@ModelAttribute("customer") Customer customer){
+
+        // Save customer
+        customerService.saveCustomer(customer);
+
+        // Redirect to customers list
+        return "redirect:/customer/list";
     }
 }

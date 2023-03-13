@@ -1,0 +1,71 @@
+/* Add spacing on top of the form */
+form {
+    margin-top: 20px;
+}
+
+/* Style the label */
+label {
+    font-size: 16px;
+    width: 100px;
+    display: block;
+    text-align: right;
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    color: #555555; /* Darken the label text color */
+}
+
+
+/* Style the input field */
+input {
+    width: 100%;
+    border: 1px solid #666;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 16px;
+    color: #333333; /* Darken the text color */
+}
+
+
+/* Style the save button */
+.save {
+    font-weight: bold;
+    padding: 10px 10px;
+    margin-top: 10px;
+    background: #3780ff; /* Change the background color */
+    color: #ffffff; /* Change the text color */
+    border: none; /* Remove the border */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out; /* Add a transition effect */
+}
+
+
+/* Add a hover effect to the save button */
+.save:hover {
+    background: #2c63b6; /* Darken the background color */
+}
+
+
+/* Style the table */
+table {
+    border-style: none;
+    width: 50%;
+}
+
+/* Style the table rows */
+tr {
+    border-style: none;
+    text-align: left;
+    height: 40px;
+}
+
+tr:nth-child(even) {
+    background: #FFFFFF
+}
+
+tr:nth-child(odd) {
+    background: #FFFFFF
+}
+
+

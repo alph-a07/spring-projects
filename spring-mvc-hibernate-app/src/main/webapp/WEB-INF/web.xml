@@ -6,6 +6,11 @@
 
     <display-name>spring-html-form</display-name>
 
+    <!-- Should be directly under webapp folder -->
+    <welcome-file-list>
+        <welcome-file>welcome.jsp</welcome-file>
+    </welcome-file-list>
+
     <absolute-ordering/>
 
     <!-- DispatcherServlet -->
