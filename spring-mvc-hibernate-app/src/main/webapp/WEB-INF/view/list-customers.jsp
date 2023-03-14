@@ -24,13 +24,30 @@
                 <th>First name</th>
                 <th>Last name</th>
                 <th>Email</th>
+                <th>Action</th>
             </tr>
 
             <c:forEach var="customer" items="${customers}">
+
+                <%-- Create an update URL for each customer --%>
+                <c:url var="updateLink" value="/customer/showUpdateForm">
+                    <c:param name="customerId" value="${customer.id}"/>
+                </c:url>
+
+                <%-- Create a delete URL for each customer --%>
+                <c:url var="deleteLink" value="/customer/delete">
+                    <c:param name="customerId" value="${customer.id}"/>
+                </c:url>
+
                 <tr>
                     <td>${customer.firstName}</td>
                     <td>${customer.lastName}</td>
                     <td>${customer.email}</td>
+                    <td>
+                        <a href="${updateLink}">Update</a> |
+                        <a href="${deleteLink}" onClick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                    </td>
+
                 </tr>
             </c:forEach>
         </table>

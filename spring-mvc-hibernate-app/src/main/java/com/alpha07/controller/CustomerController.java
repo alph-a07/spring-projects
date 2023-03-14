@@ -1,6 +1,5 @@
 package com.alpha07.controller;
 
-import com.alpha07.dao.CustomerDAO;
 import com.alpha07.entity.Customer;
 import com.alpha07.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +47,26 @@ public class CustomerController {
         customerService.saveCustomer(customer);
 
         // Redirect to customers list
+        return "redirect:/customer/list";
+    }
+
+    @GetMapping("/showUpdateForm")
+    public String shoeCustomerForm(Model model, @RequestParam("customerId") int customerID){
+        // Get customer from the id
+        Customer customer = customerService.getCustomer(customerID);
+
+        // Set customer as model attribute to fill the form with existing data
+        model.addAttribute("customer",customer);
+
+        return "add-customer";
+    }
+
+    @GetMapping("/delete")
+    public String deleteCustomer(@RequestParam("customerId") int customerID){
+
+        // Delete the customer with id = customerID
+        customerService.deleteCustomer(customerID);
+
         return "redirect:/customer/list";
     }
 }

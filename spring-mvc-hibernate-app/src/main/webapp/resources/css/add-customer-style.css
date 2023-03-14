@@ -15,7 +15,6 @@ label {
     color: #555555; /* Darken the label text color */
 }
 
-
 /* Style the input field */
 input {
     width: 100%;
@@ -25,7 +24,6 @@ input {
     font-size: 16px;
     color: #333333; /* Darken the text color */
 }
-
 
 /* Style the save button */
 .save {
@@ -40,12 +38,10 @@ input {
     transition: background 0.3s ease-in-out; /* Add a transition effect */
 }
 
-
 /* Add a hover effect to the save button */
 .save:hover {
     background: #2c63b6; /* Darken the background color */
 }
-
 
 /* Style the table */
 table {

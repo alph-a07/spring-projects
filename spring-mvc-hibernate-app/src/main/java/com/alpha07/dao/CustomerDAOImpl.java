@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class CustomerDAOImpl implements CustomerDAO{
+public class CustomerDAOImpl implements CustomerDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -32,7 +32,28 @@ public class CustomerDAOImpl implements CustomerDAO{
         // Get current database session
         Session session = sessionFactory.getCurrentSession();
 
-        // Save the customer
-        session.persist(customer);
+        // ---------- Modification after introduction of update feature -----------
+        session.merge(customer);
+    }
+
+    @Override
+    public Customer getCustomer(int customerID) {
+        // Get current database session
+        Session session = sessionFactory.getCurrentSession();
+
+        // Return the customer from database
+        return session.get(Customer.class, customerID);
+    }
+
+    @Override
+    public void delete(int customerID) {
+        // Get current database session
+        Session session = sessionFactory.getCurrentSession();
+
+        // Retrieve the customer with id = customerID
+        Customer customer = session.get(Customer.class,customerID);
+
+        // Remove the customer
+        session.remove(customer);
     }
 }
