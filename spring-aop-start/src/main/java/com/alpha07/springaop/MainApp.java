@@ -1,7 +1,10 @@
 package com.alpha07.springaop;
 
 import com.alpha07.springaop.dao.AccountDAO;
+import com.alpha07.springaop.entity.Account;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.List;
 
 public class MainApp {
     public static void main(String[] args) {
@@ -12,7 +15,15 @@ public class MainApp {
         AccountDAO accountDAO = context.getBean("accountDAO", AccountDAO.class);
 
         // Execute bean method
-        accountDAO.addAccount();
+        List<Account> accountList = null;
+
+        try {
+            accountList = accountDAO.findAccounts(false); // purposefully throw an exception to demonstrate @AfterThrowing
+        } catch (Exception e){
+            System.out.println("Execution exception : " + e);
+        }
+
+        System.out.println("Result from execution : " + accountList);
 
         // Close the context
         context.close();
