@@ -16,9 +16,11 @@ public class MainApp {
 
         // Execute bean method
         List<Account> accountList = null;
+        Account account = new Account("omnesque", "atqui");
+        accountDAO.addAccount(account);
 
         try {
-            accountList = accountDAO.findAccounts(false); // purposefully throw an exception to demonstrate @AfterThrowing
+            accountList = accountDAO.findAccounts(true); // purposefully throw an exception to demonstrate @AfterThrowing
         } catch (Exception e){
             System.out.println("Execution exception : " + e);
         }

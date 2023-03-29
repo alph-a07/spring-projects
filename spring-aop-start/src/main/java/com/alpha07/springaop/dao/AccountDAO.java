@@ -9,8 +9,8 @@ import java.util.List;
 @Component
 public class AccountDAO {
 
-    public void addAccount() {
-        System.out.println(getClass() + " : Adding an account");
+    public void addAccount(Account account) {
+        System.out.println("Adding account : " + account);
     }
 
     public List<Account> findAccounts(Boolean exceptionFlag) {
